@@ -1,4 +1,4 @@
-pragma solidity ^0.8.0;
+pragma solidity ^0.8.28;
 
 contract MyContract {
     uint public myNumber; // here is state variable
