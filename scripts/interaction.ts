@@ -20,3 +20,4 @@ async function main() {
     console.log("updated number", updated.toString());
 
 }
+main().catch(console.error)
