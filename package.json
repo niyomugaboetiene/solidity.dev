@@ -2,6 +2,7 @@
   "name": "solidity",
   "version": "1.0.0",
   "main": "index.js",
+
   "dependencies": {
     "ethereum-cryptography": "^2.2.1"
   },
