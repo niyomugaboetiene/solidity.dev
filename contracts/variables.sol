@@ -5,7 +5,7 @@ contract MyContract {
     // public make variable readed by someone else  means outside of the contract anyone reads its value
 
 
-    function setNuumber (uint _num) public {
+    function setNumber (uint _num) public {
         myNumber = _num;
     }
 

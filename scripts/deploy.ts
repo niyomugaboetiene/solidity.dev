@@ -1,15 +1,16 @@
-import Hardhat from "hardhat";
-const { ethers } = Hardhat;
+import { ethers } from "hardhat";
+
 
 export async function main() {
-    const Variables = await ethers.getContractFactory("MyContract");
-    const variables = await Variables.deploy();
-    await variables.deployed();
+    const MyContract = await ethers.getContractFactory("MyContract");
+    const myContract: any = await MyContract.deploy();
+
+    await myContract.deployed();
     
-    console.log("Variable contract deployed to:",variables.address);
+    console.log("Variable contract deployed to:", myContract.address);
 }
 
 main().catch((error) => {
     console.error(error);
-    process.exitCode = 1
+    process.exitCode = 1;
 });

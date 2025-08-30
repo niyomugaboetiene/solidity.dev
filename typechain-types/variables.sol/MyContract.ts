@@ -22,19 +22,19 @@ import type {
 
 export interface MyContractInterface extends Interface {
   getFunction(
-    nameOrSignature: "getNumber" | "myNumber" | "setNuumber"
+    nameOrSignature: "getNumber" | "myNumber" | "setNumber"
   ): FunctionFragment;
 
   encodeFunctionData(functionFragment: "getNumber", values?: undefined): string;
   encodeFunctionData(functionFragment: "myNumber", values?: undefined): string;
   encodeFunctionData(
-    functionFragment: "setNuumber",
+    functionFragment: "setNumber",
     values: [BigNumberish]
   ): string;
 
   decodeFunctionResult(functionFragment: "getNumber", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "myNumber", data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: "setNuumber", data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: "setNumber", data: BytesLike): Result;
 }
 
 export interface MyContract extends BaseContract {
@@ -84,7 +84,7 @@ export interface MyContract extends BaseContract {
 
   myNumber: TypedContractMethod<[], [bigint], "view">;
 
-  setNuumber: TypedContractMethod<[_num: BigNumberish], [void], "nonpayable">;
+  setNumber: TypedContractMethod<[_num: BigNumberish], [void], "nonpayable">;
 
   getFunction<T extends ContractMethod = ContractMethod>(
     key: string | FunctionFragment
@@ -97,7 +97,7 @@ export interface MyContract extends BaseContract {
     nameOrSignature: "myNumber"
   ): TypedContractMethod<[], [bigint], "view">;
   getFunction(
-    nameOrSignature: "setNuumber"
+    nameOrSignature: "setNumber"
   ): TypedContractMethod<[_num: BigNumberish], [void], "nonpayable">;
 
   filters: {};
