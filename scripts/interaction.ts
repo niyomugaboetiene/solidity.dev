@@ -9,11 +9,13 @@ async function main() {
     // allow my ts code to intract with my contract like call its functions, ...
     const contract = (await factory).attach(Address) as MyContract;
 
+    // call getNum function that belongs on contract 
     const initial = await contract.getNumber();
     console.log("Initial number", initial.toString());
 
     // ? set Number
     const tx = await contract.setNumber(45);
+    // wait for confrimation
     await tx.wait();
 
     const updated = await contract.getNumber();
