@@ -8,9 +8,11 @@ contract MyTokens is ERC20, Ownable {
         _mint(msg.sender, 100 * 10 ** decimals());
     }
 
-    function _transfer (address to, uint256 amount) public returns(bool) {
+    function transfer (address to, uint256 amount) public override returns(bool) {
+        // override means replace your own vision from parent function
         require(balanceOf(msg.sender) >= amount, "Balance not enought");
-        _transfer(to, amount);
+        _transfer(msg.sender, to, amount);
+        
 
         return true;
     }
