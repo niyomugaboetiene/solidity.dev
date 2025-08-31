@@ -12,8 +12,11 @@ contract MyTokens is ERC20, Ownable {
         // override means replace your own vision from parent function
         require(balanceOf(msg.sender) >= amount, "Balance not enought");
         _transfer(msg.sender, to, amount);
-        
 
         return true;
+    }
+
+    function  checkBalance(address account) public returns (uint256) {
+        return balanceOf(account);
     }
 }
