@@ -16,6 +16,8 @@ export async function main () {
 
     await mytoken.burn(20);
     console.log("20 token burned");
+
+    
 }
 
 main().catch((error) => {
