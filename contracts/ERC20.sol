@@ -31,6 +31,10 @@ function checkAllowance(address owner, address spender)  public view returns (ui
     allowance(msg.sender, spender);
 }
 
+function giveToken(address spender, uint256) public returns (bool) {
+    require(balanceOf(msg.sender) >= amount, "Balance not enough");
+    _approve(spender, amount);
+}
 
 function transferFrom(address from, address to, uint256 amount) public override returns (bool) {
     require(allowance([msg.sender][from]) >= amount, "Balance not enough");
