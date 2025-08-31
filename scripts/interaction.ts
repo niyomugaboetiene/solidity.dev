@@ -3,7 +3,7 @@ import { MyContract } from "../typechain-types";
 import { uptime } from "process";
 
 async function main() {
-    const Address = "MY_ADDRESS";
+    const Address = "0x5FbDB2315678afecb367f032d93F642f64180aa3";
 
     const factory = ethers.getContractFactory("MyContract");
     const contract = (await factory).attach(Address) as MyContract;
