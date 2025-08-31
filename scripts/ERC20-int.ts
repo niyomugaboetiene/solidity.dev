@@ -11,7 +11,7 @@ export async function main () {
     // transfer.wait()
     // console.log("Transfered 20 tokens!!");
 
-    const checkBalance = await mytoken.checkBalance("0xcd3B766CCDd6AE721141F452C550Ca635964ce71");
+    const checkBalance = await mytoken.checkBalance("0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266");
     console.log("Balance:", checkBalance.toString());
 
 }
