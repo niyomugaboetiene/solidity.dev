@@ -3,7 +3,7 @@ import { MyTokens } from "../typechain-types";
 
 export async function main () {
 
-    const Address = "0x2279B7A0a67DB372996a5FaB50D91eAA73d2eBe6";
+    const Address = "0x0DCd1Bf9A1b36cE34237eEaFef220932846BCD82";
     const factory = await ethers.getContractFactory("MyTokens");
     const mytoken = factory.attach(Address) as MyTokens;
 
@@ -16,7 +16,6 @@ export async function main () {
 
     await mytoken.burn(20);
     console.log("20 token burned");
-
 }
 
 main().catch((error) => {
