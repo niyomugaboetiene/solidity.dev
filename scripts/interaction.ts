@@ -1,11 +1,12 @@
 import { ethers } from "hardhat";
+// type that describe that describes what function exit on it
 import { MyContract } from "../typechain-types";
-import { uptime } from "process";
 
 async function main() {
     const Address = "0x5FbDB2315678afecb367f032d93F642f64180aa3";
 
     const factory = ethers.getContractFactory("MyContract");
+    // allow my ts code to intract with my contract like call its functions, ...
     const contract = (await factory).attach(Address) as MyContract;
 
     const initial = await contract.getNumber();
