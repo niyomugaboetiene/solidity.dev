@@ -29,6 +29,7 @@ export interface MyTokensInterface extends Interface {
       | "allowance"
       | "approve"
       | "balanceOf"
+      | "burn"
       | "checkBalance"
       | "decimals"
       | "name"
@@ -57,6 +58,7 @@ export interface MyTokensInterface extends Interface {
     functionFragment: "balanceOf",
     values: [AddressLike]
   ): string;
+  encodeFunctionData(functionFragment: "burn", values: [BigNumberish]): string;
   encodeFunctionData(
     functionFragment: "checkBalance",
     values: [AddressLike]
@@ -89,6 +91,7 @@ export interface MyTokensInterface extends Interface {
   decodeFunctionResult(functionFragment: "allowance", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "approve", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "balanceOf", data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: "burn", data: BytesLike): Result;
   decodeFunctionResult(
     functionFragment: "checkBalance",
     data: BytesLike
@@ -222,6 +225,8 @@ export interface MyTokens extends BaseContract {
 
   balanceOf: TypedContractMethod<[account: AddressLike], [bigint], "view">;
 
+  burn: TypedContractMethod<[amount: BigNumberish], [boolean], "nonpayable">;
+
   checkBalance: TypedContractMethod<[account: AddressLike], [bigint], "view">;
 
   decimals: TypedContractMethod<[], [bigint], "view">;
@@ -275,6 +280,9 @@ export interface MyTokens extends BaseContract {
   getFunction(
     nameOrSignature: "balanceOf"
   ): TypedContractMethod<[account: AddressLike], [bigint], "view">;
+  getFunction(
+    nameOrSignature: "burn"
+  ): TypedContractMethod<[amount: BigNumberish], [boolean], "nonpayable">;
   getFunction(
     nameOrSignature: "checkBalance"
   ): TypedContractMethod<[account: AddressLike], [bigint], "view">;

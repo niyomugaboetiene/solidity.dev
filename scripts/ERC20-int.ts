@@ -14,6 +14,9 @@ export async function main () {
     const checkBalance = await mytoken.checkBalance("0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266");
     console.log("Balance:", checkBalance.toString());
 
+    await mytoken.burn(20);
+    console.log("20 token burned");
+
 }
 
 main().catch((error) => {

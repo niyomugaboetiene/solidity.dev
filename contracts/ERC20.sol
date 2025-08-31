@@ -19,4 +19,10 @@ contract MyTokens is ERC20, Ownable {
     function  checkBalance(address account) public view returns (uint256) {
         return balanceOf(account);
     }
+    function burn(uint256 amount) public returns (bool) {
+        require(balanceOf(msg.sender) >= amount, "balance not enough");
+        _burn(msg.sender, amount);
+
+        return(true);
+    }
 }
