@@ -5,8 +5,7 @@ export async function main() {
     const myContract = (await factory.deploy());
 
     await myContract.deployed();
-    
-    console.log("Variable contract deployed to:", myContract.addres);
+    console.log("Variable contract deployed to:", myContract.target);
 }
 
 main().catch((error) => {
