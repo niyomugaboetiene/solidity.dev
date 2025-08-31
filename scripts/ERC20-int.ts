@@ -12,7 +12,7 @@ export async function main () {
     // console.log("Transfered 20 tokens!!");
 
     const checkBalance = await mytoken.checkBalance("0xcd3B766CCDd6AE721141F452C550Ca635964ce71");
-    console.log("Balance:", checkBalance);
+    console.log("Balance:", checkBalance.toString());
 
 }
 

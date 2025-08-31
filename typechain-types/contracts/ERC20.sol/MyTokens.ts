@@ -222,11 +222,7 @@ export interface MyTokens extends BaseContract {
 
   balanceOf: TypedContractMethod<[account: AddressLike], [bigint], "view">;
 
-  checkBalance: TypedContractMethod<
-    [account: AddressLike],
-    [bigint],
-    "nonpayable"
-  >;
+  checkBalance: TypedContractMethod<[account: AddressLike], [bigint], "view">;
 
   decimals: TypedContractMethod<[], [bigint], "view">;
 
@@ -281,7 +277,7 @@ export interface MyTokens extends BaseContract {
   ): TypedContractMethod<[account: AddressLike], [bigint], "view">;
   getFunction(
     nameOrSignature: "checkBalance"
-  ): TypedContractMethod<[account: AddressLike], [bigint], "nonpayable">;
+  ): TypedContractMethod<[account: AddressLike], [bigint], "view">;
   getFunction(
     nameOrSignature: "decimals"
   ): TypedContractMethod<[], [bigint], "view">;
