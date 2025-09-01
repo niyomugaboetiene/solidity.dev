@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My ERC20 Token dApp</title>
+</head>
+<body>
+    <h1>ERC20 Token Dapp</h1>
+    
+    <button id="connect">Connect to MetaMask</button>
+    <p id="account">Not connected</p>
+
+    <h3>Send token</h3>
+    <input placeholder="Recipient Address" id="recipient">
+    <input id="amount" placeholder="Amount">
+    <button id="send">Send Tokens</button>
+
+
+    <h3>Mint token</h3>
+    <input id="mintAmount" placeholder="Amount to mint">
+    <button id="mint">Mint</button>
+
+    <h3>Burn token</h3>
+    <input id="burnAmount" placeholder="Amount to burn">
+    <button id="burn">Burn</button>
+
+    <h3>Approve Spender</h3>
+    <input id="spender" placeholder="Spender Address" />
+    <input id="approveAmount" placeholder="Amount to approve" />
+    <button id="approve">Approve</button>
+
+    <script src="https://cdn.jsdelivr.net/npm/ethers/dist/ethers.min.js"></script>
+   <script src="app.js"></script>
+</body>
+</html>
