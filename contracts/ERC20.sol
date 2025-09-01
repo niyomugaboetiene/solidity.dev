@@ -28,7 +28,7 @@ contract MyTokens is ERC20, Ownable {
     }
    
 function checkAllowance(address owner, address spender)  public view returns (uint256) {
-    allowance(owner, spender);
+    return allowance(owner, spender);
 }
 
 function giveToken(address spender, uint256 amount) public  returns (bool) {
@@ -43,7 +43,7 @@ function transferFrom(address from, address to, uint256 amount) public override 
     require(balanceOf(from) >= amount, "Allowance exceed");
  
     _transfer(from, to, amount);
-   _approve(msg.sender, from, allowance(from, msg.sender) - amount);
+    _approve(msg.sender, from, allowance(from, msg.sender) - amount);
     return true;
 }
 }
