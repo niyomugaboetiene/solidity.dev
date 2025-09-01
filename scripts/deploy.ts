@@ -1,11 +1,11 @@
 import { ethers } from "hardhat";
 
 export async function main() {
-    const factory = await ethers.getContractFactory("MyContract");
-    const myContract = (await factory.deploy());
+    const factory = await ethers.getContractFactory("MyTokens");
+    const myToken = (await factory.deploy());
 
-    await myContract.waitForDeployment();
-   const address = await myContract.getAddress();
+    await myToken.waitForDeployment();
+   const address = await myToken.getAddress();
     console.log("Variable contract deployed to:", address);
 }
 
