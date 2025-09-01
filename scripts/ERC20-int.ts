@@ -3,7 +3,7 @@ import { MyTokens } from "../typechain-types";
 
 export async function main () {
 
-    const Address = "0x0DCd1Bf9A1b36cE34237eEaFef220932846BCD82";
+    const Address = "0x959922bE3CAee4b8Cd9a407cc3ac1C251C2007B1";
     const factory = await ethers.getContractFactory("MyTokens");
     const mytoken = factory.attach(Address) as MyTokens;
 
@@ -16,6 +16,12 @@ export async function main () {
 
     await mytoken.burn(20);
     console.log("20 token burned");
+
+    await mytoken.giveToken("0x70997970C51812dc3A010C7d01b50e0d17dc79C8", 40);
+    console.log("You give 40 tokens to spender!!");
+
+    const checkSpenderBalance = await mytoken.checkAllowance("0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266", "0x70997970C51812dc3A010C7d01b50e0d17dc79C8");
+    console.log("Spender Balance", checkSpenderBalance.toString());
 
     
 }

@@ -27,19 +27,23 @@ contract MyTokens is ERC20, Ownable {
         return(true);
     }
    
-function checkAllowance(address owner, address spender)  public view returns (uint245) {
-    allowance(msg.sender, spender);
+function checkAllowance(address owner, address spender)  public view returns (uint256) {
+    allowance(owner, spender);
 }
 
-function giveToken(address spender, uint256) public returns (bool) {
+function giveToken(address spender, uint256 amount) public  returns (bool) {
     require(balanceOf(msg.sender) >= amount, "Balance not enough");
-    _approve(spender, amount);
+    _approve(msg.sender, spender, amount);
+
+    return true;
 }
 
 function transferFrom(address from, address to, uint256 amount) public override returns (bool) {
-    require(allowance([msg.sender][from]) >= amount, "Balance not enough");
+    require(allowance(from, msg.sender) >= amount, "Balance not enough");
     require(balanceOf(from) >= amount, "Allowance exceed");
-
+ 
     _transfer(from, to, amount);
+   _approve(msg.sender, from, allowance(from, msg.sender) - amount);
+    return true;
 }
 }
