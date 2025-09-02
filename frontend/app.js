@@ -1,13 +1,11 @@
-const { ethers } = require("hardhat");
-
 const tokenAddress = "0xE37fBADBaEE85b96f44B0dAeb9044E5cE79C924e";
 const tokenABI = [
     "function transfer(address to, uint256 amount) returns (bool)",
     "function burn(uint256 amount) returns (bool)",
-    "function giveToken(addrees spender, uint256 amount) returns(bool)",
-    "function checkBalance(addrees account) view returns(uint256)",
-    "function checkAllowance(addrees owner, address spender) view returns(uint256)",
-    "function transferFrom(addrees from, address to, uint256 amount) returns(bool)"
+    "function giveToken(address spender, uint256 amount) returns(bool)",
+    "function checkBalance(address account) view returns(uint256)",
+    "function checkAllowance(address owner, address spender) view returns(uint256)",
+    "function transferFrom(address from, address to, uint256 amount) returns(bool)"
 ];
 
 let provider;
@@ -37,16 +35,33 @@ document.getElementById("send").onclick = async () => {
 };
 
 // Check balance
-document.getElementById("checkBalance").onclick = async () => {
-    const amount = ethers.document.getElementById("checkAccount").value;
-    const balance = await contract.checkBalance(amount);
-  document.getElementById("balance").innerText = ethers.formatUnits(balance, 18);
+const checkBalanceBtn = document.getElementById("checkBalance");
+if (checkBalanceBtn) {
+    checkBalanceBtn.onclick = async () => {
+        if (!contract) {
+            alert("No metamask detected");
+            return;
+        } 
+
+    const balances = document.getElementById("checkAccount").value;
+    try {
+        const balance = await contract.checkBalance(balances);
+        document.getElementById("balance").innerText = ethers.formatUnits(balance, 18);
+    } catch (error) {
+        console.error("Balance check error:", error);
+        alert("Error in checking balance", error.message)
+    }
+
+
+}
+
+
 };
 
 // burn token
 document.getElementById("burn").onclick = async () => {
     const amount = ethers.parseUnits(document.getElementById("burntAmount").value, 18);
-    const tx = await contract.mint(await signer.getAddress(), amount);
+    const tx = await contract.burn(await signer.getAddress(), amount);
     await tx.wait();
     alert("token burned!");
 }
@@ -64,8 +79,8 @@ document.getElementById("approve").onclick = async () => {
 document.getElementById("transferFrom").onclick = async () => {
     const from = document.getElementById("from").value;
     const to = document.getElementById("to").value;
-    const amount = ethers.parseUnits(document.getElementById("transferFromAmount").value, 18);
+    const amount = ethers.parseUnits(document.getElementById("transferAmount").value, 18);
     const tx  = await contract.transferFrom(from, to, amount);
     await tx.wait();
-    alert("Transfer from executed!")
+    alert("Transfer from executed!");
 }
