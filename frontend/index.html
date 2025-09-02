@@ -17,9 +17,10 @@
     <button id="send">Send Tokens</button>
 
 
-    <h3>Mint token</h3>
-    <input id="mintAmount" placeholder="Amount to mint">
-    <button id="mint">Mint</button>
+    <h3>Check Balance</h3>
+    <input id="checkAccount" placeholder="Wallet Address">
+    <button id="checkBalance">Check Balance</button>
+    <p id="balance"></p>
 
     <h3>Burn token</h3>
     <input id="burnAmount" placeholder="Amount to burn">
@@ -29,6 +30,12 @@
     <input id="spender" placeholder="Spender Address" />
     <input id="approveAmount" placeholder="Amount to approve" />
     <button id="approve">Approve</button>
+
+    <h3>Tranafer From (spender)</h3>
+    <input id="from" placeholder="Owner Address" />
+    <input id="to" placeholder="Recipient Address" />
+    <input id="transferAmount" placeholder="Amount" />
+    <button id="transferFrom">Transfer From</button>
 
     <script src="https://cdn.jsdelivr.net/npm/ethers/dist/ethers.min.js"></script>
    <script src="app.js"></script>
