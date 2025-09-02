@@ -32,10 +32,33 @@ document.getElementById("connect").onclick = async () => {
 // send tokens
 document.getElementById("send").onclick = async () => {
     const to = document.getElementById("recipient").value;
-    const amount = ethers.parseUnits(document.getElementById("amount").value, 10)
+    const amount = ethers.parseUnits(document.getElementById("amount").value, 18)
     const tx = await contract.transfer(to, amount)
     await tx.wait();
     alert("Token sent!!");
 };
 
+// mint token
+document.getElementById("burn").onclick = async () => {
+    const amount = ethers.parseUnits(document.getElementById("burnAmount").value, 18);
+    const tx = await contract.burn(amount);
+    await tx.wait();
+    alert("Burned tokens !!");
+};
 
+// mint token
+document.getElementById("mint").onclick = async () => {
+    const amount = ethers.parseUnits(document.getElementById("mintAmount").value, 18);
+    const tx = await contract.mint(await signer.getAddress(), amount);
+    await tx.wait();
+    alert("Minted tokens !!");
+}
+
+// approve spender
+document.getElementById("approve").onclick = async () => {
+    const spender = document.getElementById("spender").value;
+    const amount = ethers.parseUnits(document.getElementById("approveAmount").value, 18);
+    const tx = await contract.approve(spender, amount);
+    await tx.wait();
+    alert("Spender approved!!");
+} 
