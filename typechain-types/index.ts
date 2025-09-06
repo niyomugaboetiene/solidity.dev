@@ -24,5 +24,7 @@ export type { Counter } from "./contracts/Counter";
 export { Counter__factory } from "./factories/contracts/Counter__factory";
 export type { MyTokens } from "./contracts/ERC20.sol/MyTokens";
 export { MyTokens__factory } from "./factories/contracts/ERC20.sol/MyTokens__factory";
+export type { Mtk } from "./contracts/mtk.sol/Mtk";
+export { Mtk__factory } from "./factories/contracts/mtk.sol/Mtk__factory";
 export type { MyContract } from "./contracts/variables.sol/MyContract";
 export { MyContract__factory } from "./factories/contracts/variables.sol/MyContract__factory";

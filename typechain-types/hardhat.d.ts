@@ -50,6 +50,10 @@ declare module "hardhat/types/runtime" {
       signerOrOptions?: ethers.Signer | FactoryOptions
     ): Promise<Contracts.MyTokens__factory>;
     getContractFactory(
+      name: "Mtk",
+      signerOrOptions?: ethers.Signer | FactoryOptions
+    ): Promise<Contracts.Mtk__factory>;
+    getContractFactory(
       name: "MyContract",
       signerOrOptions?: ethers.Signer | FactoryOptions
     ): Promise<Contracts.MyContract__factory>;
@@ -100,6 +104,11 @@ declare module "hardhat/types/runtime" {
       signer?: ethers.Signer
     ): Promise<Contracts.MyTokens>;
     getContractAt(
+      name: "Mtk",
+      address: string | ethers.Addressable,
+      signer?: ethers.Signer
+    ): Promise<Contracts.Mtk>;
+    getContractAt(
       name: "MyContract",
       address: string | ethers.Addressable,
       signer?: ethers.Signer
@@ -142,6 +151,10 @@ declare module "hardhat/types/runtime" {
       signerOrOptions?: ethers.Signer | DeployContractOptions
     ): Promise<Contracts.MyTokens>;
     deployContract(
+      name: "Mtk",
+      signerOrOptions?: ethers.Signer | DeployContractOptions
+    ): Promise<Contracts.Mtk>;
+    deployContract(
       name: "MyContract",
       signerOrOptions?: ethers.Signer | DeployContractOptions
     ): Promise<Contracts.MyContract>;
@@ -191,6 +204,11 @@ declare module "hardhat/types/runtime" {
       args: any[],
       signerOrOptions?: ethers.Signer | DeployContractOptions
     ): Promise<Contracts.MyTokens>;
+    deployContract(
+      name: "Mtk",
+      args: any[],
+      signerOrOptions?: ethers.Signer | DeployContractOptions
+    ): Promise<Contracts.Mtk>;
     deployContract(
       name: "MyContract",
       args: any[],
