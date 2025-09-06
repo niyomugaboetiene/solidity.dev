@@ -49,14 +49,17 @@ document.getElementById("checkBalance").onclick = async () => {
 // burn token
 document.getElementById("burn").onclick = async () => {
     const amount = ethers.parseUnits(document.getElementById("burnAmount").value, 18);
-
     try {
+
       const tx = await contract.burn(amount);
       await tx.wait();
       alert("Token burned");
+
     } catch (err) {
+
         console.error("Burn errro", err);
         alert("Error burning token:" + err.message);
+        
     }
 
 }
