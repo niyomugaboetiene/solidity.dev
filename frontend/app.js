@@ -2,6 +2,7 @@ const tokenAddress = "0x2DE4c188E8F420fA27ffA49Ad9d883E0B8F69779";
 const tokenABI = [
     "function transfer(address to, uint256 amount) returns (bool)",
     "function burn(uint256 amount) returns (bool)",
+    "function decimals() returns (uint8)",
     "function giveToken(address spender, uint256 amount) returns(bool)",
     "function checkBalance(address account) view returns(uint256)",
     "function checkAllowance(address owner, address spender) view returns(uint256)",
@@ -38,8 +39,8 @@ document.getElementById("checkBalance").onclick = async () => {
 
     const check = document.getElementById("checkAccount").value;
     const balance = await contract.checkBalance(check);
-    const decimals = await contract.decimals();
-    const readableBalance = await ethers.formatUnits(balance, decimals);
+    const decimal = await contract.decimals();
+    const readableBalance = ethers.formatUnits(balance, decimal);
     document.getElementById("balance").innerText = readableBalance;
         
 };
