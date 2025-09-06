@@ -1,4 +1,4 @@
-const tokenAddress = "0xE37fBADBaEE85b96f44B0dAeb9044E5cE79C924e";
+const tokenAddress = "0x5FbDB2315678afecb367f032d93F642f64180aa3";
 const tokenABI = [
     "function transfer(address to, uint256 amount) returns (bool)",
     "function burn(uint256 amount) returns (bool)",
@@ -25,6 +25,8 @@ document.getElementById("connect").onclick = async () => {
     }
 };
 
+const code = await provider.getCode(tokenAddress);
+console.log("Contract Address", code);
 // send tokens
 document.getElementById("send").onclick = async () => {
     const to = document.getElementById("recipient").value;
