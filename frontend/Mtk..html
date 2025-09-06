@@ -29,17 +29,25 @@
         // signer is needed when you want to write transaction like approve, balance
         let signer;
 
-
+        // is your ethereum address where your contract is deployed
+        // without this your frontend can not find your contract to check balance of send transaction
         const addressToken = "0xC86fa22a047B9aA61429B8d929f343FA5E6Cd24c";
+        // ABI -> Application Binary Interface
+        // is list of all functions, input, outputs, and event that your contract exposes it tells how to communicate with contract
         const tokenABI = [
             "function balanceOf(address) view returns(uint256)",
             "function decimals() view returns(uint8)"
         ];
 
         async function connectWallet() {
+            // check if metaMask is installed if it is undefined means metaMask is not installed
             if (window.ethereum) {
+                // read blockchain data
                 provider = new ethers.BrowserProvider(window.ethereum);
+                // represent specific ethereum account that can sign the transaction
+                // is used to send transaction
                 signer = await provider.getSigner();
+                // retrieve ethereum address from the connected account 
                 const userAddress = await signer.getAddress();
 
                 document.getElementById("wallet").innerText = "Wallet: " + userAddress;
