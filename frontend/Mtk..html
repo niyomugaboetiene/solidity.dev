@@ -17,10 +17,18 @@
 
 <script src="https://cdn.jsdelivr.net/npm/ethers@6.8.0/dist/ethers.umd.min.js"></script>
     <script>
-        
+
+        // it is like connection to the blockchain it read data from the blockchain like pure or view
+        // blockchain connection
         let provider;
+        // smart contract interface
+        // it gives contract address contract ABI, 
         let contract;
+        // wallet identity
+        //  signer it is user's wallet identity (their private key but safely managed by MetaMask)
+        // signer is needed when you want to write transaction like approve, balance
         let signer;
+
 
         const addressToken = "0xC86fa22a047B9aA61429B8d929f343FA5E6Cd24c";
         const tokenABI = [
