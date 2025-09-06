@@ -4,23 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My token</title>
-    <script src="https://cdn.jsdelivr.net/npm/ethers@5.7.2/dist/ethers.min.js"></script>
 </head>
 <body>
     <h2>Simple dApp</h2>
     <button onclick="connectWallet();">Connect Metamask</button>
     <p id="wallet">Wallet: not connected</p>
     <input type="text" id="address" placeholder="Enter address" />
-    <button onclick="CheckBalance();">Check balance</button>
+    <button onclick="checkBalance();">Check balance</button>
     <p id="balance"></p>
 
-
+<script src="https://cdn.jsdelivr.net/npm/ethers@6.8.0/dist/ethers.umd.min.js"></script>
     <script>
         let provider;
         let contract;
         let signer;
 
-        const addressToken = "0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512";
+        const addressToken = "0xCf7Ed3AccA5a467e9e704C703E8D87F634fB0Fc9";
         const tokenABI = [
             "function balanceOf(address) view returns(uint)",
             "function decimals() view returns(uint)"
@@ -28,14 +27,14 @@
 
         async function connectWallet() {
             if (window.ethereum) {
-                provider = new ethers.provides.Web3Proivder(window.ethereum);
-                await provider.send("eth_requestAccounts", []);
-                signer = provider.getSigner();
+                provider = new ethers.BrowserProvider(window.ethereum);
+                signer = await provider.getSigner();
                 const userAddress = await signer.getAddress();
 
                 document.getElementById("wallet").innerText = "Wallet: " + userAddress;
 
                 contract = new ethers.Contract(addressToken, tokenABI, provider);
+                console.log(await contract.balanceOf("0x72acEE3554A7456d47714E588C327ed86D445685"));
 
             } else {
                 alert("Metamaks not found")
@@ -50,7 +49,7 @@
             const balance = await contract.balanceOf(address);
             const decimals = await contract.decimals();
 
-            const readableBalance = ethers.utils.formatUnits(balance, decimals);
+            const readableBalance = ethers.formatUnits(balance, decimals);
 
             document.getElementById("balance").innerText = "Balance: " + readableBalance;
         }
