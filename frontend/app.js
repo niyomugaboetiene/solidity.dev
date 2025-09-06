@@ -1,4 +1,4 @@
-const tokenAddress = "0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512";
+const tokenAddress = "0x2DE4c188E8F420fA27ffA49Ad9d883E0B8F69779";
 const tokenABI = [
     "function transfer(address to, uint256 amount) returns (bool)",
     "function burn(uint256 amount) returns (bool)",
@@ -18,7 +18,7 @@ document.getElementById("connect").onclick = async () => {
         signer = await provider.getSigner();
         contract = new ethers.Contract(tokenAddress, tokenABI, provider);
         const account = await signer.getAddress();
-        document.getElementById("account").innerText = "Connected" + account;
+        document.getElementById("account").innerText = "Connected: " + account;
     } else {
         alert("MetaMask not detected!!");
     }
@@ -38,7 +38,7 @@ document.getElementById("checkBalance").onclick = async () => {
 
     const check = document.getElementById("checkAccount").value;
     const balance = await contract.checkBalance(check);
-    const decimals = contract.decimals();
+    const decimals = await contract.decimals();
     const readableBalance = await ethers.formatUnits(balance, decimals);
     document.getElementById("balance").innerText = readableBalance;
         
