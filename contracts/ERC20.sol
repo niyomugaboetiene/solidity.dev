@@ -16,7 +16,7 @@ contract MyTokens is ERC20, Ownable {
         return true;
     }
 
-    function  checkBalance(address account) public view returns (uint256) {
+    function checkBalance(address account) public view returns (uint256) {
         return balanceOf(account);
     }
 

@@ -45,9 +45,9 @@ if (checkBalanceBtn) {
             return;
         } 
 
-    const balances = document.getElementById("checkAccount").value;
+    const check = document.getElementById("checkAccount").value;
     try {
-        const balance = await contract.checkBalance(balances);
+        const balance = await contract.checkBalance(check);
         document.getElementById("balance").innerText = ethers.formatUnits(balance, 18);
     } catch (error) {
         console.error("Balance check error:", error);
