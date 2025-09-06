@@ -52,8 +52,9 @@
 
                 document.getElementById("wallet").innerText = "Wallet: " + userAddress;
 
+                // lets javascript frontend talks  to the deployed smart contract
                 contract = new ethers.Contract(addressToken, tokenABI, provider);
-                console.log(await contract.balanceOf("0x72acEE3554A7456d47714E588C327ed86D445685"));
+                // console.log(await contract.balanceOf("0x72acEE3554A7456d47714E588C327ed86D445685"));
 
             } else {
                 alert("Metamaks not found")
