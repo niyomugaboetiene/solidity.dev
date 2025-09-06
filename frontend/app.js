@@ -31,41 +31,34 @@ console.log("Contract Address", code);
 document.getElementById("send").onclick = async () => {
     const to = document.getElementById("recipient").value;
     const amount = ethers.parseUnits(document.getElementById("amount").value, 18)
-    const tx = await contract.transfer(to, amount)
+    const tx = await contract.transfer(to, amount);
     await tx.wait();
     alert("Token sent!!");
 };
 
 // Check balance
-const checkBalanceBtn = document.getElementById("checkBalance");
-if (checkBalanceBtn) {
-    checkBalanceBtn.onclick = async () => {
-        if (!contract) {
-            alert("No metamask detected");
-            return;
-        } 
+document.getElementById("checkBalance").onclick = async () => {
 
     const check = document.getElementById("checkAccount").value;
-    try {
-        const balance = await contract.checkBalance(check);
-        document.getElementById("balance").innerText = ethers.formatUnits(balance, 18);
-    } catch (error) {
-        console.error("Balance check error:", error);
-        alert("Error in checking balance", error.message)
-    }
-
-
-}
-
-
+    const balance = await contract.checkBalance(check);
+    document.getElementById("balance").innerText = balance;
+        
 };
+
 
 // burn token
 document.getElementById("burn").onclick = async () => {
-    const amount = ethers.parseUnits(document.getElementById("burntAmount").value, 18);
-    const tx = await contract.burn(await signer.getAddress(), amount);
-    await tx.wait();
-    alert("token burned!");
+    const amount = ethers.parseUnits(document.getElementById("burnAmount").value, 18);
+
+    try {
+      const tx = await contract.burn(amount);
+      await tx.wait();
+      alert("Token burned");
+    } catch (err) {
+        console.error("Burn errro", err);
+        alert("Error burning token:" + err.message);
+    }
+
 }
 
 // approve spender
