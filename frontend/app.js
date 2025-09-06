@@ -14,10 +14,9 @@ let contract;
 
 document.getElementById("connect").onclick = async () => {
     if (window.ethereum) {
-        await window.ethereum.request({ method: "eth_requestAccounts" });
         provider = new ethers.BrowserProvider(window.ethereum);
         signer = await provider.getSigner();
-        contract = new ethers.Contract(tokenAddress, tokenABI, signer);
+        contract = new ethers.Contract(tokenAddress, tokenABI, provider);
         const account = await signer.getAddress();
         document.getElementById("account").innerText = "Connected" + account;
     } else {
@@ -25,8 +24,6 @@ document.getElementById("connect").onclick = async () => {
     }
 };
 
-const code = await provider.getCode(tokenAddress);
-console.log("Contract Address", code);
 // send tokens
 document.getElementById("send").onclick = async () => {
     const to = document.getElementById("recipient").value;
@@ -41,7 +38,9 @@ document.getElementById("checkBalance").onclick = async () => {
 
     const check = document.getElementById("checkAccount").value;
     const balance = await contract.checkBalance(check);
-    document.getElementById("balance").innerText = balance;
+    const decimals = contract.decimals();
+    const readableBalance = await ethers.formatUnits(balance, decimals);
+    document.getElementById("balance").innerText = readableBalance;
         
 };
 
