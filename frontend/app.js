@@ -18,7 +18,7 @@ document.getElementById("connect").onclick = async () => {
     if (window.ethereum) {
         provider = new ethers.BrowserProvider(window.ethereum);
         signer = await provider.getSigner();
-        contract = new ethers.Contract(tokenAddress, tokenABI, provider);
+        contract = new ethers.Contract(tokenAddress, tokenABI, signer);
         const account = await signer.getAddress();
         document.getElementById("account").innerText = "Connected: " + account;
     } else {
@@ -55,9 +55,13 @@ document.getElementById("burn").onclick = async () => {
     const burnAmount = ethers.parseUnits(amount, decimal);
 
     const tx = await contract.burn(burnAmount);
-    await tx.wait(); // ? wait for confrimation
+    // await tx.wait(); // ? wait for confrimation
     
-    document.getElementById("burn").innerText = "Token burned";
+    if (tx) {
+        alert("Token burned successfully"); 
+    } else {
+        alert("Token not burned");
+    }
 }
 
 // approve spender
