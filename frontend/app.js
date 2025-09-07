@@ -67,8 +67,11 @@ document.getElementById("burn").onclick = async () => {
 // approve spender
 document.getElementById("approve").onclick = async () => {
     const spender = document.getElementById("spender").value;
-    const amount = ethers.parseUnits(document.getElementById("approveAmount").value, 18);
-    const tx = await contract.approve(spender, amount);
+    const amounts = document.getElementById("approveAmount").value;
+    const decimal = await contract.decimals();
+    const amount = ethers.parseUnits(amounts, decimal);
+
+    const tx = await contract.giveToken(spender, amount);
     await tx.wait();
     alert("Spender approved!!");
 } 
@@ -77,8 +80,11 @@ document.getElementById("approve").onclick = async () => {
 document.getElementById("transferFrom").onclick = async () => {
     const from = document.getElementById("from").value;
     const to = document.getElementById("to").value;
-    const amount = ethers.parseUnits(document.getElementById("transferAmount").value, 18);
-    const tx  = await contract.transferFrom(from, to, amount);
+    const amount = document.getElementById("transferAmount");
+    const decimal = await contract.decimals();
+    const readableAmount = ethers.parseUnits(amount, decimal);
+
+    const tx  = await contract.transferFrom(from, to, readableAmount);
     await tx.wait();
     alert("Transfer from executed!");
 }
