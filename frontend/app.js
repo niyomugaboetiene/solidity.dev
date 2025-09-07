@@ -80,7 +80,7 @@ document.getElementById("approve").onclick = async () => {
 document.getElementById("transferFrom").onclick = async () => {
     const from = document.getElementById("from").value;
     const to = document.getElementById("to").value;
-    const amount = document.getElementById("transferAmount");
+    const amount = document.getElementById("transferAmount").value;
     const decimal = await contract.decimals();
     const readableAmount = ethers.parseUnits(amount, decimal);
 
