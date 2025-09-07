@@ -2,7 +2,7 @@ const tokenAddress = "0x2DE4c188E8F420fA27ffA49Ad9d883E0B8F69779";
 
 const tokenABI = [
     "function transfer(address to, uint256 amount) returns (bool)",
-    "function burn(uint256 amount) view returns (bool)",
+    "function burn(uint256 amount) returns (bool)",
     "function decimals() view returns (uint8)",
     "function giveToken(address spender, uint256 amount) returns(bool)",
     "function checkBalance(address account) view returns(uint256)",
@@ -55,7 +55,7 @@ document.getElementById("burn").onclick = async () => {
     const burnAmount = ethers.parseUnits(amount, decimal);
 
     const tx = await contract.burn(burnAmount);
-    // await tx.wait(); // ? wait for confrimation
+    await tx.wait(); //  wait for confrimation
     
     if (tx) {
         alert("Token burned successfully"); 
