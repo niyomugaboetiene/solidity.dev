@@ -1,8 +1,9 @@
 const tokenAddress = "0x2DE4c188E8F420fA27ffA49Ad9d883E0B8F69779";
+
 const tokenABI = [
     "function transfer(address to, uint256 amount) returns (bool)",
-    "function burn(uint256 amount) returns (bool)",
-    "function decimals() returns (uint8)",
+    "function burn(uint256 amount) view returns (bool)",
+    "function decimals() view returns (uint8)",
     "function giveToken(address spender, uint256 amount) returns(bool)",
     "function checkBalance(address account) view returns(uint256)",
     "function checkAllowance(address owner, address spender) view returns(uint256)",
@@ -48,20 +49,15 @@ document.getElementById("checkBalance").onclick = async () => {
 
 // burn token
 document.getElementById("burn").onclick = async () => {
-    const amount = ethers.parseUnits(document.getElementById("burnAmount").value, 18);
-    try {
+   const amount = document.getElementById("burnAmount").value;
+   const decimal = await contract.decimals();
 
-      const tx = await contract.burn(amount);
-      await tx.wait();
-      alert("Token burned");
+    const burnAmount = ethers.parseUnits(amount, decimal);
 
-    } catch (err) {
-
-        console.error("Burn errro", err);
-        alert("Error burning token:" + err.message);
-        
-    }
-
+    const tx = await contract.burn(burnAmount);
+    await tx.wait(); // ? wait for confrimation
+    
+    document.getElementById("burn").innerText = "Token burned";
 }
 
 // approve spender
