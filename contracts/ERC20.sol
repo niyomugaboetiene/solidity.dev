@@ -39,11 +39,11 @@ function giveToken(address spender, uint256 amount) public  returns (bool) {
 }
 
 function transferFrom(address from, address to, uint256 amount) public override returns (bool) {
-    require(allowance(from, msg.sender) >= amount, "Balance not enough");
-    require(balanceOf(from) >= amount, "Allowance exceed");
- 
+    require(balanceOf(from) >= amount, "Balance not enough");
+    require(allowance(from, msg.sender) >= amount, "Allowance exceed");
+
     _transfer(from, to, amount);
-    _approve(msg.sender, from, allowance(from, msg.sender) - amount);
+    _approve(from, msg.sender, allowance(from, msg.sender) - amount);
     return true;
 }
 }
