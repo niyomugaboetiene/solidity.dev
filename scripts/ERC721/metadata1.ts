@@ -11,5 +11,5 @@ export async function main () {
 }
 
 main().catch((error) => {
-    console.error("ERROR: ", error)
+    console.error("ERROR: ", error);
 })
