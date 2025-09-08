@@ -385,7 +385,7 @@ export interface Transfer extends BaseContract {
 
   transfer: TypedContractMethod<
     [to: AddressLike, tokenId: BigNumberish],
-    [void],
+    [boolean],
     "nonpayable"
   >;
 
@@ -486,7 +486,7 @@ export interface Transfer extends BaseContract {
     nameOrSignature: "transfer"
   ): TypedContractMethod<
     [to: AddressLike, tokenId: BigNumberish],
-    [void],
+    [boolean],
     "nonpayable"
   >;
   getFunction(

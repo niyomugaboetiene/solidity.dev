@@ -19,7 +19,9 @@ contract Transfer is ERC721URIStorage, Ownable {
         return newTokenId;
     }
 
-    function  transfer(address to, uint256 tokenId) public {
+    function  transfer(address to, uint256 tokenId) public returns (bool) {
         safeTransferFrom(msg.sender, to, tokenId);   
+        
+        return true;
     }
 }
