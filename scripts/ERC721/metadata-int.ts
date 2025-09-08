@@ -11,6 +11,7 @@ export async function main()  {
     console.log("Minted succeffully");
 
     const tokenId = 0;
+    // call link minted to the tokenID
     const metadataURI = await metadata.tokenURI(tokenId);
 
     console.log("Metadata URI:", metadataURI);
