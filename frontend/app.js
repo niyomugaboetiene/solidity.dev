@@ -1,4 +1,4 @@
-const tokenAddress = "0x2DE4c188E8F420fA27ffA49Ad9d883E0B8F69779";
+const tokenAddress = "0xDeE0fD025169D05B4da5a7298b853accD01808D2";
 
 const tokenABI = [
     "function transfer(address to, uint256 amount) returns (bool)",
@@ -81,6 +81,7 @@ document.getElementById("transferFrom").onclick = async () => {
     const from = document.getElementById("from").value;
     const to = document.getElementById("to").value;
     const amount = document.getElementById("transferAmount").value;
+
     const decimal = await contract.decimals();
     const readableAmount = ethers.parseUnits(amount, decimal);
 
