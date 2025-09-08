@@ -15,6 +15,7 @@ export async function main()  {
     const metadataURI = await metadata.tokenURI(tokenId);
 
     console.log("Metadata URI:", metadataURI);
+    
 }
 
 main().catch((error) => {
