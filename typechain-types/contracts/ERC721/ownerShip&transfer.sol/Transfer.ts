@@ -114,7 +114,7 @@ export interface TransferInterface extends Interface {
   ): string;
   encodeFunctionData(
     functionFragment: "transfer",
-    values: [AddressLike, BigNumberish]
+    values: [AddressLike, AddressLike, BigNumberish]
   ): string;
   encodeFunctionData(
     functionFragment: "transferFrom",
@@ -384,7 +384,7 @@ export interface Transfer extends BaseContract {
   tokenURI: TypedContractMethod<[tokenId: BigNumberish], [string], "view">;
 
   transfer: TypedContractMethod<
-    [to: AddressLike, tokenId: BigNumberish],
+    [from: AddressLike, to: AddressLike, tokenId: BigNumberish],
     [boolean],
     "nonpayable"
   >;
@@ -485,7 +485,7 @@ export interface Transfer extends BaseContract {
   getFunction(
     nameOrSignature: "transfer"
   ): TypedContractMethod<
-    [to: AddressLike, tokenId: BigNumberish],
+    [from: AddressLike, to: AddressLike, tokenId: BigNumberish],
     [boolean],
     "nonpayable"
   >;
