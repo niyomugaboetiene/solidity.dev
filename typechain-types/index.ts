@@ -50,5 +50,7 @@ export type { MyNFT } from "./contracts/ERC721/ERC721.sol/MyNFT";
 export { MyNFT__factory } from "./factories/contracts/ERC721/ERC721.sol/MyNFT__factory";
 export type { MyNFTMetadata } from "./contracts/ERC721/metadata.sol/MyNFTMetadata";
 export { MyNFTMetadata__factory } from "./factories/contracts/ERC721/metadata.sol/MyNFTMetadata__factory";
+export type { ReminderPractice } from "./contracts/ERC721/metadata1.sol/ReminderPractice";
+export { ReminderPractice__factory } from "./factories/contracts/ERC721/metadata1.sol/ReminderPractice__factory";
 export type { MyContract } from "./contracts/variables.sol/MyContract";
 export { MyContract__factory } from "./factories/contracts/variables.sol/MyContract__factory";

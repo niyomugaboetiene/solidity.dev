@@ -102,6 +102,10 @@ declare module "hardhat/types/runtime" {
       signerOrOptions?: ethers.Signer | FactoryOptions
     ): Promise<Contracts.MyNFTMetadata__factory>;
     getContractFactory(
+      name: "ReminderPractice",
+      signerOrOptions?: ethers.Signer | FactoryOptions
+    ): Promise<Contracts.ReminderPractice__factory>;
+    getContractFactory(
       name: "MyContract",
       signerOrOptions?: ethers.Signer | FactoryOptions
     ): Promise<Contracts.MyContract__factory>;
@@ -217,6 +221,11 @@ declare module "hardhat/types/runtime" {
       signer?: ethers.Signer
     ): Promise<Contracts.MyNFTMetadata>;
     getContractAt(
+      name: "ReminderPractice",
+      address: string | ethers.Addressable,
+      signer?: ethers.Signer
+    ): Promise<Contracts.ReminderPractice>;
+    getContractAt(
       name: "MyContract",
       address: string | ethers.Addressable,
       signer?: ethers.Signer
@@ -311,6 +320,10 @@ declare module "hardhat/types/runtime" {
       signerOrOptions?: ethers.Signer | DeployContractOptions
     ): Promise<Contracts.MyNFTMetadata>;
     deployContract(
+      name: "ReminderPractice",
+      signerOrOptions?: ethers.Signer | DeployContractOptions
+    ): Promise<Contracts.ReminderPractice>;
+    deployContract(
       name: "MyContract",
       signerOrOptions?: ethers.Signer | DeployContractOptions
     ): Promise<Contracts.MyContract>;
@@ -425,6 +438,11 @@ declare module "hardhat/types/runtime" {
       args: any[],
       signerOrOptions?: ethers.Signer | DeployContractOptions
     ): Promise<Contracts.MyNFTMetadata>;
+    deployContract(
+      name: "ReminderPractice",
+      args: any[],
+      signerOrOptions?: ethers.Signer | DeployContractOptions
+    ): Promise<Contracts.ReminderPractice>;
     deployContract(
       name: "MyContract",
       args: any[],

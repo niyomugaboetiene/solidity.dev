@@ -3,3 +3,4 @@
 /* eslint-disable */
 export * as erc721Sol from "./ERC721.sol";
 export * as metadataSol from "./metadata.sol";
+export * as metadata1Sol from "./metadata1.sol";
