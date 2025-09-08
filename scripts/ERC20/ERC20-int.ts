@@ -1,5 +1,5 @@
 import { ethers } from "hardhat";
-import { MyTokens } from "../typechain-types";
+import { MyTokens } from "../../typechain-types";
 
 export async function main () {
 
