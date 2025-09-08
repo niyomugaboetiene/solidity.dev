@@ -1,0 +1,9 @@
+ {
+        "name": "Golden NFT #1",
+        "description": "This NFT unlock VIP Access",
+        "image": "https://maroon-abundant-marlin-479.mypinata.cloud/ipfs/bafkreiaofmrhvldmnkkyxmm6alxtmb2tcbfpawqmzmoqup66nfzepziogq",
+        "attributes": [
+            { "trait_type": "Background", "value": "Blue" },
+            { "trait_type": "Rarity", "value": "Legendary" }
+  ]
+}
