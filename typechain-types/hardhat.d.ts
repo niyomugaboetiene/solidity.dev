@@ -30,6 +30,10 @@ declare module "hardhat/types/runtime" {
       signerOrOptions?: ethers.Signer | FactoryOptions
     ): Promise<Contracts.IERC721Errors__factory>;
     getContractFactory(
+      name: "IERC4906",
+      signerOrOptions?: ethers.Signer | FactoryOptions
+    ): Promise<Contracts.IERC4906__factory>;
+    getContractFactory(
       name: "ERC20",
       signerOrOptions?: ethers.Signer | FactoryOptions
     ): Promise<Contracts.ERC20__factory>;
@@ -45,6 +49,10 @@ declare module "hardhat/types/runtime" {
       name: "ERC721",
       signerOrOptions?: ethers.Signer | FactoryOptions
     ): Promise<Contracts.ERC721__factory>;
+    getContractFactory(
+      name: "ERC721URIStorage",
+      signerOrOptions?: ethers.Signer | FactoryOptions
+    ): Promise<Contracts.ERC721URIStorage__factory>;
     getContractFactory(
       name: "IERC721Metadata",
       signerOrOptions?: ethers.Signer | FactoryOptions
@@ -82,10 +90,6 @@ declare module "hardhat/types/runtime" {
       signerOrOptions?: ethers.Signer | FactoryOptions
     ): Promise<Contracts.MyTokens__factory>;
     getContractFactory(
-      name: "MyTokens",
-      signerOrOptions?: ethers.Signer | FactoryOptions
-    ): Promise<Contracts.MyTokens__factory>;
-    getContractFactory(
       name: "Mtk",
       signerOrOptions?: ethers.Signer | FactoryOptions
     ): Promise<Contracts.Mtk__factory>;
@@ -94,9 +98,9 @@ declare module "hardhat/types/runtime" {
       signerOrOptions?: ethers.Signer | FactoryOptions
     ): Promise<Contracts.MyNFT__factory>;
     getContractFactory(
-      name: "Mtk",
+      name: "MyNFTMetadata",
       signerOrOptions?: ethers.Signer | FactoryOptions
-    ): Promise<Contracts.Mtk__factory>;
+    ): Promise<Contracts.MyNFTMetadata__factory>;
     getContractFactory(
       name: "MyContract",
       signerOrOptions?: ethers.Signer | FactoryOptions
@@ -123,6 +127,11 @@ declare module "hardhat/types/runtime" {
       signer?: ethers.Signer
     ): Promise<Contracts.IERC721Errors>;
     getContractAt(
+      name: "IERC4906",
+      address: string | ethers.Addressable,
+      signer?: ethers.Signer
+    ): Promise<Contracts.IERC4906>;
+    getContractAt(
       name: "ERC20",
       address: string | ethers.Addressable,
       signer?: ethers.Signer
@@ -142,6 +151,11 @@ declare module "hardhat/types/runtime" {
       address: string | ethers.Addressable,
       signer?: ethers.Signer
     ): Promise<Contracts.ERC721>;
+    getContractAt(
+      name: "ERC721URIStorage",
+      address: string | ethers.Addressable,
+      signer?: ethers.Signer
+    ): Promise<Contracts.ERC721URIStorage>;
     getContractAt(
       name: "IERC721Metadata",
       address: string | ethers.Addressable,
@@ -188,11 +202,6 @@ declare module "hardhat/types/runtime" {
       signer?: ethers.Signer
     ): Promise<Contracts.MyTokens>;
     getContractAt(
-      name: "MyTokens",
-      address: string | ethers.Addressable,
-      signer?: ethers.Signer
-    ): Promise<Contracts.MyTokens>;
-    getContractAt(
       name: "Mtk",
       address: string | ethers.Addressable,
       signer?: ethers.Signer
@@ -203,10 +212,10 @@ declare module "hardhat/types/runtime" {
       signer?: ethers.Signer
     ): Promise<Contracts.MyNFT>;
     getContractAt(
-      name: "Mtk",
+      name: "MyNFTMetadata",
       address: string | ethers.Addressable,
       signer?: ethers.Signer
-    ): Promise<Contracts.Mtk>;
+    ): Promise<Contracts.MyNFTMetadata>;
     getContractAt(
       name: "MyContract",
       address: string | ethers.Addressable,
@@ -230,6 +239,10 @@ declare module "hardhat/types/runtime" {
       signerOrOptions?: ethers.Signer | DeployContractOptions
     ): Promise<Contracts.IERC721Errors>;
     deployContract(
+      name: "IERC4906",
+      signerOrOptions?: ethers.Signer | DeployContractOptions
+    ): Promise<Contracts.IERC4906>;
+    deployContract(
       name: "ERC20",
       signerOrOptions?: ethers.Signer | DeployContractOptions
     ): Promise<Contracts.ERC20>;
@@ -245,6 +258,10 @@ declare module "hardhat/types/runtime" {
       name: "ERC721",
       signerOrOptions?: ethers.Signer | DeployContractOptions
     ): Promise<Contracts.ERC721>;
+    deployContract(
+      name: "ERC721URIStorage",
+      signerOrOptions?: ethers.Signer | DeployContractOptions
+    ): Promise<Contracts.ERC721URIStorage>;
     deployContract(
       name: "IERC721Metadata",
       signerOrOptions?: ethers.Signer | DeployContractOptions
@@ -282,10 +299,6 @@ declare module "hardhat/types/runtime" {
       signerOrOptions?: ethers.Signer | DeployContractOptions
     ): Promise<Contracts.MyTokens>;
     deployContract(
-      name: "MyTokens",
-      signerOrOptions?: ethers.Signer | DeployContractOptions
-    ): Promise<Contracts.MyTokens>;
-    deployContract(
       name: "Mtk",
       signerOrOptions?: ethers.Signer | DeployContractOptions
     ): Promise<Contracts.Mtk>;
@@ -294,9 +307,9 @@ declare module "hardhat/types/runtime" {
       signerOrOptions?: ethers.Signer | DeployContractOptions
     ): Promise<Contracts.MyNFT>;
     deployContract(
-      name: "Mtk",
+      name: "MyNFTMetadata",
       signerOrOptions?: ethers.Signer | DeployContractOptions
-    ): Promise<Contracts.Mtk>;
+    ): Promise<Contracts.MyNFTMetadata>;
     deployContract(
       name: "MyContract",
       signerOrOptions?: ethers.Signer | DeployContractOptions
@@ -323,6 +336,11 @@ declare module "hardhat/types/runtime" {
       signerOrOptions?: ethers.Signer | DeployContractOptions
     ): Promise<Contracts.IERC721Errors>;
     deployContract(
+      name: "IERC4906",
+      args: any[],
+      signerOrOptions?: ethers.Signer | DeployContractOptions
+    ): Promise<Contracts.IERC4906>;
+    deployContract(
       name: "ERC20",
       args: any[],
       signerOrOptions?: ethers.Signer | DeployContractOptions
@@ -342,6 +360,11 @@ declare module "hardhat/types/runtime" {
       args: any[],
       signerOrOptions?: ethers.Signer | DeployContractOptions
     ): Promise<Contracts.ERC721>;
+    deployContract(
+      name: "ERC721URIStorage",
+      args: any[],
+      signerOrOptions?: ethers.Signer | DeployContractOptions
+    ): Promise<Contracts.ERC721URIStorage>;
     deployContract(
       name: "IERC721Metadata",
       args: any[],
@@ -388,11 +411,6 @@ declare module "hardhat/types/runtime" {
       signerOrOptions?: ethers.Signer | DeployContractOptions
     ): Promise<Contracts.MyTokens>;
     deployContract(
-      name: "MyTokens",
-      args: any[],
-      signerOrOptions?: ethers.Signer | DeployContractOptions
-    ): Promise<Contracts.MyTokens>;
-    deployContract(
       name: "Mtk",
       args: any[],
       signerOrOptions?: ethers.Signer | DeployContractOptions
@@ -403,10 +421,10 @@ declare module "hardhat/types/runtime" {
       signerOrOptions?: ethers.Signer | DeployContractOptions
     ): Promise<Contracts.MyNFT>;
     deployContract(
-      name: "Mtk",
+      name: "MyNFTMetadata",
       args: any[],
       signerOrOptions?: ethers.Signer | DeployContractOptions
-    ): Promise<Contracts.Mtk>;
+    ): Promise<Contracts.MyNFTMetadata>;
     deployContract(
       name: "MyContract",
       args: any[],

@@ -3,3 +3,5 @@
 /* eslint-disable */
 import type * as erc721Sol from "./ERC721.sol";
 export type { erc721Sol };
+import type * as metadataSol from "./metadata.sol";
+export type { metadataSol };

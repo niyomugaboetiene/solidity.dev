@@ -3,12 +3,8 @@
 /* eslint-disable */
 import type * as erc20 from "./ERC20";
 export type { erc20 };
-import type * as erc20Sol from "./ERC20.sol";
-export type { erc20Sol };
 import type * as erc721 from "./ERC721";
 export type { erc721 };
-import type * as mtkSol from "./mtk.sol";
-export type { mtkSol };
 import type * as variablesSol from "./variables.sol";
 export type { variablesSol };
 export type { Counter } from "./Counter";

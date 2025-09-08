@@ -2,8 +2,6 @@
 /* tslint:disable */
 /* eslint-disable */
 export * as erc20 from "./ERC20";
-export * as erc20Sol from "./ERC20.sol";
 export * as erc721 from "./ERC721";
-export * as mtkSol from "./mtk.sol";
 export * as variablesSol from "./variables.sol";
 export { Counter__factory } from "./Counter__factory";
