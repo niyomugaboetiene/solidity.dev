@@ -16,6 +16,7 @@ contract MyNFTMetadata is ERC721URIStorage, Ownable {
     function mintNFT(address to, string memory tokenURI_) public onlyOwner returns(uint256) {
         uint256 newTokenId = tokenCounter;
         _safeMint(to, newTokenId);
+        // set token ID with specific link address
         _setTokenURI(newTokenId, tokenURI_);
         tokenCounter += 1;
         return newTokenId;
