@@ -7,3 +7,5 @@ import type * as metadataSol from "./metadata.sol";
 export type { metadataSol };
 import type * as metadata1Sol from "./metadata1.sol";
 export type { metadata1Sol };
+import type * as ownerShipTransferSol from "./ownerShip&transfer.sol";
+export type { ownerShipTransferSol };

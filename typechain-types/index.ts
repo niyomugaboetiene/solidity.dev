@@ -52,5 +52,7 @@ export type { MyNFTMetadata } from "./contracts/ERC721/metadata.sol/MyNFTMetadat
 export { MyNFTMetadata__factory } from "./factories/contracts/ERC721/metadata.sol/MyNFTMetadata__factory";
 export type { ReminderPractice } from "./contracts/ERC721/metadata1.sol/ReminderPractice";
 export { ReminderPractice__factory } from "./factories/contracts/ERC721/metadata1.sol/ReminderPractice__factory";
+export type { Transfer } from "./contracts/ERC721/ownerShip&transfer.sol/Transfer";
+export { Transfer__factory } from "./factories/contracts/ERC721/ownerShip&transfer.sol/Transfer__factory";
 export type { MyContract } from "./contracts/variables.sol/MyContract";
 export { MyContract__factory } from "./factories/contracts/variables.sol/MyContract__factory";

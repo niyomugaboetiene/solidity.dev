@@ -106,6 +106,10 @@ declare module "hardhat/types/runtime" {
       signerOrOptions?: ethers.Signer | FactoryOptions
     ): Promise<Contracts.ReminderPractice__factory>;
     getContractFactory(
+      name: "Transfer",
+      signerOrOptions?: ethers.Signer | FactoryOptions
+    ): Promise<Contracts.Transfer__factory>;
+    getContractFactory(
       name: "MyContract",
       signerOrOptions?: ethers.Signer | FactoryOptions
     ): Promise<Contracts.MyContract__factory>;
@@ -226,6 +230,11 @@ declare module "hardhat/types/runtime" {
       signer?: ethers.Signer
     ): Promise<Contracts.ReminderPractice>;
     getContractAt(
+      name: "Transfer",
+      address: string | ethers.Addressable,
+      signer?: ethers.Signer
+    ): Promise<Contracts.Transfer>;
+    getContractAt(
       name: "MyContract",
       address: string | ethers.Addressable,
       signer?: ethers.Signer
@@ -324,6 +333,10 @@ declare module "hardhat/types/runtime" {
       signerOrOptions?: ethers.Signer | DeployContractOptions
     ): Promise<Contracts.ReminderPractice>;
     deployContract(
+      name: "Transfer",
+      signerOrOptions?: ethers.Signer | DeployContractOptions
+    ): Promise<Contracts.Transfer>;
+    deployContract(
       name: "MyContract",
       signerOrOptions?: ethers.Signer | DeployContractOptions
     ): Promise<Contracts.MyContract>;
@@ -443,6 +456,11 @@ declare module "hardhat/types/runtime" {
       args: any[],
       signerOrOptions?: ethers.Signer | DeployContractOptions
     ): Promise<Contracts.ReminderPractice>;
+    deployContract(
+      name: "Transfer",
+      args: any[],
+      signerOrOptions?: ethers.Signer | DeployContractOptions
+    ): Promise<Contracts.Transfer>;
     deployContract(
       name: "MyContract",
       args: any[],
