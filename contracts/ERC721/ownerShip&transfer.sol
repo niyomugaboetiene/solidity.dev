@@ -21,6 +21,7 @@ contract Transfer is ERC721URIStorage, Ownable {
 
     function  transfer(address from, address to, uint256 tokenId) public returns (bool) {
         require(msg.sender == from, "Only owner allowed");
+        // transfer ownership of NFT safely from one address to another
         safeTransferFrom(from, to, tokenId);
         
         return true;
