@@ -44,7 +44,7 @@ function transferFrom(address from, address to, uint256 amount) public override 
     require(allowance(from, msg.sender) >= amount, "Allowance exceed");
 
     _transfer(from, to, amount);
-    _approve(from, msg.sender, allowance(from, msg.sender) - amount);
+    _spendAllowance(from, msg.sender, amount);
     return true;
 }
 }
