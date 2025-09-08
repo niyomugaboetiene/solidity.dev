@@ -16,7 +16,7 @@ contract ReminderPractice is ERC721URIStorage, Ownable {
         _setTokenURI(newTokenId, tokenUrl);
         tokenCounter += 1;
 
-        return tokenCounter;
+        return newTokenId;
     }
 }
 
