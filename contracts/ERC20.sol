@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: MIT 
 pragma solidity ^0.8.20;
 
 import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
@@ -40,7 +41,7 @@ function giveToken(address spender, uint256 amount) public  returns (bool) {
 
 function transferFrom(address from, address to, uint256 amount) public override returns (bool) {
     require(balanceOf(from) >= amount, "Balance not enough");
-    // require(allowance(from, msg.sender) >= amount, "Allowance exceed");
+    require(allowance(from, msg.sender) >= amount, "Allowance exceed");
 
     _transfer(from, to, amount);
     _approve(from, msg.sender, allowance(from, msg.sender) - amount);
