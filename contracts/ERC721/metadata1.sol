@@ -13,6 +13,7 @@ contract ReminderPractice is ERC721URIStorage, Ownable {
     function mintNft(address to, string memory tokenUrl) public onlyOwner returns (uint256) {
         uint256 newTokenId = tokenCounter;
         _safeMint(to, newTokenId);
+        // assign metadata link URI to specific  NFT ID
         _setTokenURI(newTokenId, tokenUrl);
         tokenCounter += 1;
 
