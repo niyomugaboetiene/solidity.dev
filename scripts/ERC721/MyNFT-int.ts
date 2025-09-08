@@ -9,5 +9,11 @@ export async function main() {
 
     const tx = await myNft.MintNFT("0x1CBd3b2770909D4e10f157cABC84C7264073C9Ec");
     tx.wait();
+
     console.log("Amount minted successfully to this address");
 }
+
+main().catch((error) => {
+    console.error("ERROR:", error);
+    process.exit(1);
+});
