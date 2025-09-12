@@ -17,5 +17,11 @@ contract SimpleDAO {
     Proposal[] public proposals;
     mapping (address => bool) hasVoted;
 // create proposal
-    function 
+    function createProposal (string memory _description) public {
+         proposals.push(Proposal({
+            description: _description,
+            voteCount: 0,
+            executed: false
+         }));
+    }
 }
