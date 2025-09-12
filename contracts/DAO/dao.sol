@@ -24,4 +24,8 @@ contract SimpleDAO {
             executed: false
          }));
     }
+
+    function vote(uint256 proposalId) public {
+        require(!hasVoted[msg.sender], "You already voted!");
+    }
 }
