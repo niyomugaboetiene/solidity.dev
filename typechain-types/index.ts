@@ -42,6 +42,8 @@ export type { Strings } from "./@openzeppelin/contracts/utils/Strings";
 export { Strings__factory } from "./factories/@openzeppelin/contracts/utils/Strings__factory";
 export type { Counter } from "./contracts/Counter";
 export { Counter__factory } from "./factories/contracts/Counter__factory";
+export type { SimpleDAO } from "./contracts/DAO/dao.sol/SimpleDAO";
+export { SimpleDAO__factory } from "./factories/contracts/DAO/dao.sol/SimpleDAO__factory";
 export type { MyTokens } from "./contracts/ERC20/ERC20.sol/MyTokens";
 export { MyTokens__factory } from "./factories/contracts/ERC20/ERC20.sol/MyTokens__factory";
 export type { Mtk } from "./contracts/ERC20/mtk.sol/Mtk";
