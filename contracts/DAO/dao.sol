@@ -10,12 +10,12 @@ contract SimpleDAO {
     struct Proposal {
         
         string description;
-        uint256 voteCount;
-        bool executed; 
+        uint256 voteCount; // how many votes
+        bool executed;  // mark proposal as executed to prevent double execution
     }
 
-    Proposal[] public proposals;
-    mapping (address => bool) hasVoted;
+    Proposal[] public proposals; // store Proposal struct in the proposal variable
+    mapping (address => bool) hasVoted; // each address store if it is voted or not 
 // create proposal
     function createProposal (string memory _description) public {
          proposals.push(Proposal({
