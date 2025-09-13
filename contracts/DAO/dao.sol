@@ -32,4 +32,20 @@ contract SimpleDAO {
         proposals[proposalId].voteCount += 1;
         hasVoted[msg.sender] = true;
     }
+
+    // Execute if proposal (one count = one vote)
+    function execute(uint256 proposalId) public {
+        require((proposalId < proposals.length), "Invalid proposal");
+        Proposal storage proposal  = proposals[proposalId];
+        require(!proposal.executed, "Also executed");
+
+        if (proposal.voteCount > 1) {
+            proposal.executed = true;
+        }
+    }
+
+    // view proposal
+    function getProposal() public view returns (Proposal[] memory) {
+        return proposals;
+    }
 }
