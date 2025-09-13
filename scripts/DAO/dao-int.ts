@@ -6,11 +6,22 @@ export async function main() {
     const factory = await ethers.getContractFactory("SimpleDAO");
     const dao = await factory.attach(address) as SimpleDAO;
 
-    const tx = await dao.createProposal("Fund community project");
+    // const tx = await dao.createProposal("Fund community project");
+    // tx.wait();
+    // if (tx) {
+    //     console.log("DAO created successfully !!");
+    // }
+
+    // const tx = await dao.vote(0);
+    // tx.wait();
+    // if (tx) {
+    //     console.log("You voted successfully");
+    // }
+
+    const tx = await dao.execute(0);
     tx.wait();
-    if (tx) {
-        console.log("DAO created successfully !!");
-    }
+    console.log("Executed !!", tx);
+    
 }
 
 main().catch((error) => {
