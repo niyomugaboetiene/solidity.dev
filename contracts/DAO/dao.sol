@@ -27,5 +27,9 @@ contract SimpleDAO {
 
     function vote(uint256 proposalId) public {
         require(!hasVoted[msg.sender], "You already voted!");
+        require(proposalId < proposals.length, "Invalid proposal");
+
+        proposals[proposalId].voteCount += 1;
+        hasVoted[msg.sender] = true;
     }
 }
