@@ -25,7 +25,4 @@ contract DAO {
        proposals[proposalId].voteCount += 1;
        isVoted[msg.sender] = true;
    }
-
-
-    
 }
