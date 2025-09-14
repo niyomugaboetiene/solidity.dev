@@ -22,7 +22,7 @@ import type {
 
 export interface DAOInterface extends Interface {
   getFunction(
-    nameOrSignature: "CreateProposal" | "Vote" | "proposals"
+    nameOrSignature: "CreateProposal" | "Vote" | "execute" | "proposals"
   ): FunctionFragment;
 
   encodeFunctionData(
@@ -30,6 +30,10 @@ export interface DAOInterface extends Interface {
     values: [string]
   ): string;
   encodeFunctionData(functionFragment: "Vote", values: [BigNumberish]): string;
+  encodeFunctionData(
+    functionFragment: "execute",
+    values: [BigNumberish]
+  ): string;
   encodeFunctionData(
     functionFragment: "proposals",
     values: [BigNumberish]
@@ -40,6 +44,7 @@ export interface DAOInterface extends Interface {
     data: BytesLike
   ): Result;
   decodeFunctionResult(functionFragment: "Vote", data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: "execute", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "proposals", data: BytesLike): Result;
 }
 
@@ -94,6 +99,12 @@ export interface DAO extends BaseContract {
 
   Vote: TypedContractMethod<[proposalId: BigNumberish], [void], "nonpayable">;
 
+  execute: TypedContractMethod<
+    [proposalId: BigNumberish],
+    [void],
+    "nonpayable"
+  >;
+
   proposals: TypedContractMethod<
     [arg0: BigNumberish],
     [
@@ -115,6 +126,9 @@ export interface DAO extends BaseContract {
   ): TypedContractMethod<[_description: string], [void], "nonpayable">;
   getFunction(
     nameOrSignature: "Vote"
+  ): TypedContractMethod<[proposalId: BigNumberish], [void], "nonpayable">;
+  getFunction(
+    nameOrSignature: "execute"
   ): TypedContractMethod<[proposalId: BigNumberish], [void], "nonpayable">;
   getFunction(
     nameOrSignature: "proposals"

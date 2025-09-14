@@ -25,4 +25,13 @@ contract DAO {
        proposals[proposalId].voteCount += 1;
        isVoted[msg.sender] = true;
    }
+
+   function  execute(uint256 proposalId) public {
+    require(proposals[proposalId].executed, "Already executed !!");
+    require(proposalId < proposals.length, "Invalid proposal !!");
+    
+    if (proposals[proposalId].voteCount > 1) {
+         proposals[proposalId].executed = true;
+    }
+   }
 }
