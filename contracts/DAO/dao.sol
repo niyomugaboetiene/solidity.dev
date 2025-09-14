@@ -46,22 +46,31 @@ contract SimpleDAO {
     // Execute if proposal (one count = one vote)
     function execute(uint256 proposalId) public {
         require((proposalId < proposals.length), "Invalid proposal");
+        // store proposalId in variable instead of writting proposal[proposalId].executed
         Proposal storage proposal  = proposals[proposalId];
         require(!proposal.executed, "Also executed");
 
+         // check if proposal is voted 
         if (proposal.voteCount > 1) {
+            // mark proposal as executed
             proposal.executed = true;
         }
     }
 
     // view proposal
+    // define function to read all proposals from the contract
     function getProposal() public view returns (
+        // array of string to define description of each proposal
         string[] memory description,
+        // array to define how many votes each proposal has
         uint256[] memory voteCount,
+        // array showin if each proposal is executed or no
         bool[] memory executed
 
     ) {
+        // get length of proposals array
         uint256 len = proposals.length;
+        // store each description on the decription array
         description = new string[](len);
         voteCount = new uint256[](len);
         executed = new bool[](len);
