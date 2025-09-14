@@ -6,19 +6,19 @@ export async function main() {
     const factory = await ethers.getContractFactory("DAO");
     const dao =  factory.attach(address) as DAO;
 
-    const createProposals = await dao.CreateProposal("Fund project");
+    const createProposals = await dao.CreateProposal("Enterprise project");
     createProposals.wait();
 
     if (createProposals) {
          console.log("DAO Created successfully");
     }
 
-    // const vote = await dao.Vote(0);
-    // vote.wait();
+    const vote = await dao.Vote(2);
+    vote.wait();
 
-    // if (vote) {
-    //     console.log("Voted successuflly");
-    // }
+    if (vote) {
+        console.log("Voted successuflly");
+    }
 
     // const execute = await dao.execute(0);
     // execute.wait();
@@ -27,10 +27,10 @@ export async function main() {
     //     console.log("Executed successfully !!");
     // }
  
-    // const [_description, voteCount, executed] = await dao.getProposal();
-    // for (let i = 0; i < _description.length; i ++) {
-    //     console.log(_description[i], voteCount[i], executed[i]);
-    // }
+    const [_description, voteCount, executed] = await dao.getProposal();
+    for (let i = 0; i < _description.length; i ++) {
+        console.log(_description[i], voteCount[i], executed[i]);
+    }
 }
 
 main().catch((error) => {
