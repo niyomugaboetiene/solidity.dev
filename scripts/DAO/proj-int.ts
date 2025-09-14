@@ -6,5 +6,14 @@ export async function main() {
     const factory = await ethers.getContractFactory("DAO");
     const dao =  factory.attach(address) as DAO;
 
-    
+    const tx = await dao.CreateProposal("Fund project");
+    tx.wait();
+
+    if (tx) {
+         console.log("DAO Created successfully");
+    }
 }
+
+main().catch((error) => {
+    console.error("ERROR:", error);
+});
