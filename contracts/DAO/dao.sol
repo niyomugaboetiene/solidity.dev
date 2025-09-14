@@ -72,5 +72,6 @@ contract SimpleDAO {
             voteCount[i] = p.voteCount;
             executed[i] = p.executed;
         }
+        return (description, voteCount, executed);
     }
 }

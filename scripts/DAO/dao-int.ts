@@ -2,7 +2,7 @@ import { ethers } from "hardhat";
 import { SimpleDAO } from "../../typechain-types";
 
 export async function main() {
-    const address = "0xCf7Ed3AccA5a467e9e704C703E8D87F634fB0Fc9";
+    const address = "0xDc64a140Aa3E981100a9becA4E685f962f0cF6C9";
     const factory = await ethers.getContractFactory("SimpleDAO");
     const dao = factory.attach(address) as SimpleDAO;
 
