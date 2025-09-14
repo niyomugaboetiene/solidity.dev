@@ -18,9 +18,13 @@ export async function main() {
     //     console.log("You voted successfully");
     // }
 
-    const tx = await dao.execute(0);
-    tx.wait();
-    console.log("Executed !!", tx);
+    // const tx = await dao.execute(0);
+    // tx.wait();
+    // console.log("Executed !!", tx);
+
+    // ? get proposals
+    const tx = await dao.getProposal();
+    console.log("Propsals: ", tx);
     
 }
 
