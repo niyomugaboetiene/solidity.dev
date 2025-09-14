@@ -18,10 +18,16 @@ contract SimpleDAO {
     mapping (address => bool) hasVoted; // each address store if it is voted or not 
 // create proposal
     function createProposal (string memory _description) public {
+        // define function called createProposal and takes input from the user which called description
          proposals.push(Proposal({
+            // add new item in the proposals array
+            // Proposal({...}) create struct variable and add its value
             description: _description,
+            // its description
             voteCount: 0,
+            // how many voter hote the proposal
             executed: false
+            // executed to ensure it is will be executed once
          }));
     }
 
