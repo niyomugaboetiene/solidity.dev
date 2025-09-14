@@ -55,7 +55,22 @@ contract SimpleDAO {
     }
 
     // view proposal
-    function getProposal() public view returns (Proposal[] memory) {
-        return proposals;
+    function getProposal() public view returns (
+        string[] memory description,
+        uint256[] memory voteCount,
+        bool[] memory executed
+
+    ) {
+        uint256 len = proposals.length;
+        description = new string[](len);
+        voteCount = new uint256[](len);
+        executed = new bool[](len);
+        
+        for (uint256 i = 0; i < len; i ++) {
+            Proposal storage p = proposals[i];
+            description[i] = p.description;
+            voteCount[i] = p.voteCount;
+            executed[i] = p.executed;
+        }
     }
 }

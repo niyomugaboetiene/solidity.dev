@@ -20,20 +20,6 @@ import type {
   TypedContractMethod,
 } from "../../../common";
 
-export declare namespace SimpleDAO {
-  export type ProposalStruct = {
-    description: string;
-    voteCount: BigNumberish;
-    executed: boolean;
-  };
-
-  export type ProposalStructOutput = [
-    description: string,
-    voteCount: bigint,
-    executed: boolean
-  ] & { description: string; voteCount: bigint; executed: boolean };
-}
-
 export interface SimpleDAOInterface extends Interface {
   getFunction(
     nameOrSignature:
@@ -132,7 +118,13 @@ export interface SimpleDAO extends BaseContract {
 
   getProposal: TypedContractMethod<
     [],
-    [SimpleDAO.ProposalStructOutput[]],
+    [
+      [string[], bigint[], boolean[]] & {
+        description: string[];
+        voteCount: bigint[];
+        executed: boolean[];
+      }
+    ],
     "view"
   >;
 
@@ -162,7 +154,17 @@ export interface SimpleDAO extends BaseContract {
   ): TypedContractMethod<[proposalId: BigNumberish], [void], "nonpayable">;
   getFunction(
     nameOrSignature: "getProposal"
-  ): TypedContractMethod<[], [SimpleDAO.ProposalStructOutput[]], "view">;
+  ): TypedContractMethod<
+    [],
+    [
+      [string[], bigint[], boolean[]] & {
+        description: string[];
+        voteCount: bigint[];
+        executed: boolean[];
+      }
+    ],
+    "view"
+  >;
   getFunction(
     nameOrSignature: "proposals"
   ): TypedContractMethod<
