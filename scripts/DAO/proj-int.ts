@@ -2,16 +2,16 @@ import { ethers } from "hardhat";
 import { DAO } from "../../typechain-types";
 
 export async function main() {
-    const address = "0xA51c1fc2f0D1a1b8494Ed1FE312d7C3a78Ed91C0";
+    const address = "0x59b670e9fA9D0A427751Af201D676719a970857b";
     const factory = await ethers.getContractFactory("DAO");
     const dao =  factory.attach(address) as DAO;
 
-    const createProposals = await dao.CreateProposal("Fund project");
-    createProposals.wait();
+    // const createProposals = await dao.CreateProposal("Fund project");
+    // createProposals.wait();
 
-    if (createProposals) {
-         console.log("DAO Created successfully");
-    }
+    // if (createProposals) {
+    //      console.log("DAO Created successfully");
+    // }
 
     // const vote = await dao.Vote(0);
     // vote.wait();
@@ -20,12 +20,12 @@ export async function main() {
     //     console.log("Voted successuflly");
     // }
 
-    // const execute = await dao.execute(0);
-    // execute.wait();
+    const execute = await dao.execute(0);
+    execute.wait();
 
-    // if (execute) {
-    //     console.log("Executed successfully !!");
-    // }
+    if (execute) {
+        console.log("Executed successfully !!");
+    }
 
 }
 

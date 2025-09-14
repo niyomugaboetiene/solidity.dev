@@ -27,7 +27,7 @@ contract DAO {
    }
 
    function  execute(uint256 proposalId) public {
-    require(proposals[proposalId].executed, "Already executed !!");
+    require(!proposals[proposalId].executed, "Already executed !!");
     require(proposalId < proposals.length, "Invalid proposal !!");
     
     if (proposals[proposalId].voteCount > 1) {
