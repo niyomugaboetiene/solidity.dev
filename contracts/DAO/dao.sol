@@ -32,10 +32,14 @@ contract SimpleDAO {
     }
 
     function vote(uint256 proposalId) public {
+        // check if user didn't voted yet
         require(!hasVoted[msg.sender], "You already voted!");
+        // check if ID of proposal exist
         require(proposalId < proposals.length, "Invalid proposal");
 
+        // in proposals array add one count to the ID of proposal 
         proposals[proposalId].voteCount += 1;
+        // make the ethereum address voted 
         hasVoted[msg.sender] = true;
     }
 
