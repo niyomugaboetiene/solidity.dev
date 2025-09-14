@@ -27,11 +27,32 @@ contract DAO {
    }
 
    function  execute(uint256 proposalId) public {
-    require(!proposals[proposalId].executed, "Already executed !!");
     require(proposalId < proposals.length, "Invalid proposal !!");
+    require(!proposals[proposalId].executed, "Already executed !!");
     
     if (proposals[proposalId].voteCount > 1) {
          proposals[proposalId].executed = true;
     }
+   }
+
+   function getProposal() public view returns (
+       string[] memory _description,
+       uint256[] memory voteCount,
+       bool[] memory executed
+   ) {
+        uint256 len = proposals.length;
+        _description = new string[](len);
+        voteCount = new uint256[](len);
+        executed = new bool[](len);
+
+        for(uint256 i = 0; i < len; i++) {
+            Proposal storage p = proposals[i];
+
+            _description[i] = p.description;
+            voteCount[i] = p.voteCount;
+            executed[i] = p.executed;
+        }
+
+        return (_description, voteCount, executed);
    }
 }
