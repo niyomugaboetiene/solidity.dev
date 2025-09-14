@@ -18,8 +18,14 @@ contract DAO {
         }));
     }
 
-//    function  Vote(address proposalId) public {
-     
-//    }
+   function  Vote(uint256 proposalId) public {
+       require(!isVoted[msg.sender], "Already voted !!");
+       require(proposalId < proposals.length  , "Invalid proposal");
+
+       proposals[proposalId].voteCount += 1;
+       isVoted[msg.sender] = true;
+   }
+
+
     
 }
