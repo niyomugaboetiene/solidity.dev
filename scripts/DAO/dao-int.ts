@@ -23,8 +23,10 @@ export async function main() {
     // console.log("Executed !!", tx);
 
     // ? get proposals
-    const tx = await dao.getProposal();
-    console.log("Propsals: ", tx);
+    const  [ description, voteCount, executed ] = await dao.getProposal();
+    for (let i = 0; i < description.length; i ++) {
+        console.log(description[i], voteCount[i].toString(), executed[i])
+    }
     
 }
 
