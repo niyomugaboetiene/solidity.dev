@@ -10,13 +10,16 @@ contract DAO {
     Proposal[] public proposals;
     mapping (address => bool) isVoted;
 
-    function CreateProposal(address memory _description) public {
-        proposals.push(Proposal{
+    function CreateProposal(string memory _description) public {
+        proposals.push(Proposal({
             description: _description,
             voteCount: 0,
             executed: false
-        });
+        }));
     }
 
+//    function  Vote(address proposalId) public {
+     
+//    }
     
 }

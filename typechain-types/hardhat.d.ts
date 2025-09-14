@@ -90,6 +90,10 @@ declare module "hardhat/types/runtime" {
       signerOrOptions?: ethers.Signer | FactoryOptions
     ): Promise<Contracts.SimpleDAO__factory>;
     getContractFactory(
+      name: "DAO",
+      signerOrOptions?: ethers.Signer | FactoryOptions
+    ): Promise<Contracts.DAO__factory>;
+    getContractFactory(
       name: "MyTokens",
       signerOrOptions?: ethers.Signer | FactoryOptions
     ): Promise<Contracts.MyTokens__factory>;
@@ -214,6 +218,11 @@ declare module "hardhat/types/runtime" {
       signer?: ethers.Signer
     ): Promise<Contracts.SimpleDAO>;
     getContractAt(
+      name: "DAO",
+      address: string | ethers.Addressable,
+      signer?: ethers.Signer
+    ): Promise<Contracts.DAO>;
+    getContractAt(
       name: "MyTokens",
       address: string | ethers.Addressable,
       signer?: ethers.Signer
@@ -326,6 +335,10 @@ declare module "hardhat/types/runtime" {
       signerOrOptions?: ethers.Signer | DeployContractOptions
     ): Promise<Contracts.SimpleDAO>;
     deployContract(
+      name: "DAO",
+      signerOrOptions?: ethers.Signer | DeployContractOptions
+    ): Promise<Contracts.DAO>;
+    deployContract(
       name: "MyTokens",
       signerOrOptions?: ethers.Signer | DeployContractOptions
     ): Promise<Contracts.MyTokens>;
@@ -449,6 +462,11 @@ declare module "hardhat/types/runtime" {
       args: any[],
       signerOrOptions?: ethers.Signer | DeployContractOptions
     ): Promise<Contracts.SimpleDAO>;
+    deployContract(
+      name: "DAO",
+      args: any[],
+      signerOrOptions?: ethers.Signer | DeployContractOptions
+    ): Promise<Contracts.DAO>;
     deployContract(
       name: "MyTokens",
       args: any[],

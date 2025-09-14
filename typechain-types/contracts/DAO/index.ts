@@ -3,3 +3,5 @@
 /* eslint-disable */
 import type * as daoSol from "./dao.sol";
 export type { daoSol };
+import type * as projSol from "./proj.sol";
+export type { projSol };
