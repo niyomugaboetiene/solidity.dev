@@ -76,9 +76,13 @@ contract SimpleDAO {
         executed = new bool[](len);
         
         for (uint256 i = 0; i < len; i ++) {
+            // gets only proposal in the blockchain
             Proposal storage p = proposals[i];
+            // gets description of the current index
             description[i] = p.description;
+            // gets numbers of proposals for this proposal
             voteCount[i] = p.voteCount;
+            // get if is executed or no
             executed[i] = p.executed;
         }
         return (description, voteCount, executed);
