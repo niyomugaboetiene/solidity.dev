@@ -9,6 +9,7 @@ contract Counter {
   function inc() public {
     x++;
     emit Increment(1);
+    
   }
 
   function incBy(uint by) public {
