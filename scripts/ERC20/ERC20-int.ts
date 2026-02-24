@@ -3,7 +3,7 @@ import { MyTokens } from "../../typechain-types";
 
 export async function main () {
 
-    const Address = "0x322813Fd9A801c5507c9de605d63CEA4f2CE6c44";
+    const Address = "0x5FbDB2315678afecb367f032d93F642f64180aa3";
     const factory = await ethers.getContractFactory("MyTokens");
     const mytoken = factory.attach(Address) as MyTokens;
 
